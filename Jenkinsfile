@@ -9,7 +9,7 @@ pipeline {
             }
         }   
 
-      stage('Unit Tests') {
+      stage('Unit Tests - JUnit and JaCoCo') {
             steps {
               sh "mvn test"
             }
@@ -19,6 +19,14 @@ pipeline {
                 jacoco execPattern: 'target/jacoco.exec'
               }
             }
-        } 
+        }
+
+      stage(){
+        steps {
+          sh 'printenv'
+          sh 'docker build -t takinbo2410/numeric-app:""$GIT_COMMIT""'
+          sh 'docker push takinbo2410/numeric-app:""$GIT_COMMIT""'
+        }
+      } 
     }
 }
