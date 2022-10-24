@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-      stage(){
+      stage("Docker Build"){
         steps {
           sh 'printenv'
           sh 'docker build -t takinbo2410/numeric-app:""$GIT_COMMIT""'
