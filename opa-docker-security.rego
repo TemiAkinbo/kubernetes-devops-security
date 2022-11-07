@@ -79,10 +79,10 @@ forbidden_users = [
 ]
 
 deny[msg] {
-    input[i].Cmd := "user"
+    input[i].Cmd == "user"
     val := input[i].Value
     contains(lower(val[_]), forbidden_users[_])
-    msg = sprintf("Line %d: Do not run as root", [i, val])
+    msg = sprintf("Line %d: Do not run as root: %s", [i, val])
 }
 
 # Do not sudo
