@@ -1,5 +1,3 @@
-package main
-
 # Do Not store secrets in ENV variables
 secrets_env = [
     "passwd",
