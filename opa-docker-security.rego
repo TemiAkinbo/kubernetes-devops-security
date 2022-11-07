@@ -79,7 +79,7 @@ forbidden_users = [
 ]
 
 deny[msg] {
-    inout[i].Cmd := "user"
+    input[i].Cmd := "user"
     val := input[i].Value
     contains(lower(val[_]), forbidden_users[_])
     msg = sprintf("Line %d: Do not run as root", [i, val])
