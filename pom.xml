@@ -118,6 +118,15 @@
 				<failBuildOnCVSS>10</failBuildOnCVSS>
 			</configuration>
 			</plugin>
+			<plugin>
+			<groupId>org.cyclonedx</groupId>
+			<artifactId>cyclonedx-maven-plugin</artifactId>
+			<configuration>
+			    <outputFormat>all</outputFormat>
+			    <outputName>bom</outputName>
+			    <outputDirectory>${project.build.directory}</outputDirectory>
+			</configuration>
+		    </plugin>
 		</plugins>
 	</build>
 
